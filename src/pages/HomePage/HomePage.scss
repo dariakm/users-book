@@ -1,0 +1,17 @@
+@import "../../styles/variables";
+
+.main {
+    .header-image {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .text {
+        padding: 0 2rem 2rem;
+
+        p {
+            margin: 1rem 0;
+            font-size: 2rem;
+        }
+    }
+}

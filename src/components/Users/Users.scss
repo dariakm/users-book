@@ -1,0 +1,64 @@
+@import "../../styles/variables";
+
+table {
+    display: grid;
+    grid-template-columns:
+        minmax(75px, 0.5fr)
+        minmax(150px, 1fr)
+        minmax(150px, 1fr)
+        minmax(225px, 1.5fr)
+        minmax(300px, 3fr);
+    border-collapse: collapse;
+    min-width: 100%;
+}
+
+thead,
+tbody,
+tr {
+    display: contents;
+}
+
+th,
+td {
+    align-self: center;
+    line-height: 48px;
+    padding: 15px;
+    white-space: nowrap;
+}
+
+th {
+    background: $color-dark-purple;
+    color: white;
+    font-weight: normal;
+    position: sticky;
+    top: 0;
+    text-align: left;
+}
+
+th:last-child {
+    border: 0;
+}
+
+td {
+    border-bottom: 1px solid $color-dark-gray;
+    color: $color-gray;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+tr:nth-child(even) td {
+    background: $color-white;
+}
+
+td img {
+    display: block;
+    border-radius: 50%;
+}
+
+tr:hover {
+    cursor: pointer;
+}
+
+tr:hover td {
+    background: $color-purple;
+}

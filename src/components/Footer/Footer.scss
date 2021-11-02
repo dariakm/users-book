@@ -1,0 +1,26 @@
+@import "../../styles/variables";
+
+.footer {
+    background-color: $color-dark-gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__menu {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        li {
+            margin: 0 2rem;
+            a {
+                color: $color-white;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
