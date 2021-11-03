@@ -1,16 +1,29 @@
 import { useCallback, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "../../actions/";
 import "./Users.scss";
 
-function UserList({ users }) {
+function UserList() {
+    const userlist = useSelector((state) => state.users);
+    const dispatch = useDispatch();
+
+    const { infiniteScroll, initialUsers } = bindActionCreators(
+        actionCreators,
+        dispatch
+    );
+
     const onScroll = useCallback(() => {
         const bodyHeight = document.body.offsetHeight;
-        const diff = 200;
-        const scrollPosition =
-            window.visualViewport.pageTop + window.visualViewport.height;
-        if (bodyHeight - scrollPosition < diff) {
+        const diff = 300;
+        const viewport = window.visualViewport;
+        const scrollPosition = viewport.pageTop + viewport.height;
+        if (bodyHeight - scrollPosition <= diff) {
             console.log("Load more users");
+            infiniteScroll();
         }
     }, []);
+
     useEffect(() => {
         window.addEventListener("scroll", onScroll);
 
@@ -18,6 +31,10 @@ function UserList({ users }) {
             window.removeEventListener("scroll", onScroll);
         };
     });
+
+    useEffect(() => {
+        initialUsers();
+    }, []);
 
     return (
         <div className="userlist">
@@ -32,7 +49,7 @@ function UserList({ users }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((user) => (
+                    {userlist.map((user) => (
                         <tr key={user.login.username}>
                             <td>
                                 <img

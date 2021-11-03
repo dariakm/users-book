@@ -1,0 +1,5 @@
+export const ActionType = {
+    INITIAL_USERS: "INITIAL_USERS",
+    ADD_USERS: "ADD_USERS",
+    INFINITE_SCROLL: "INFINITE_SCROLL",
+};

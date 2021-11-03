@@ -1,18 +1,19 @@
-import { SET_USERS } from "../actions/";
+import { ActionType } from "../actions/action-types/";
 
 const initialState = {
     users: [],
 };
 
-const globalReducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_USERS:
+        case ActionType.ADD_USERS:
+            console.log("reducer", action.users);
             return {
-                users: action.users,
+                users: [...state.users, ...action.users],
             };
         default:
             return state;
     }
 };
 
-export default globalReducer;
+export default reducer;

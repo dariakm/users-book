@@ -1,14 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import globalReducer from "./reducers/";
-import "./index.scss";
+import reducer from "./reducers/";
+import createSagaMiddleware from "redux-saga";
+import saga from "./sagas";
 import UsersBook from "./components/UsersBook";
 import reportWebVitals from "./reportWebVitals";
+import "./index.scss";
 
-const store = createStore(globalReducer);
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(
+    reducer,
+    { users: [] },
+    applyMiddleware(sagaMiddleware)
+);
+sagaMiddleware.run(saga);
 
 ReactDOM.render(
     <Provider store={store}>
