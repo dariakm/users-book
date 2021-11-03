@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import UserBook from "../../components/Users/";
-import Footer from "../../components/Footer/";
+import Header from "../../components/Header/";
 import "./HomePage.scss";
 
 function HomePage() {
@@ -16,14 +16,13 @@ function HomePage() {
             });
     }, []);
     return (
-        <div className="container">
-            <header className="header">
-                <h1>Header</h1>
-            </header>
-            <section className="search">Search Field</section>
-            {users.length > 0 ? <UserBook users={users} /> : null}
-            <div className="footer"> Footer </div>
-        </div>
+        <>
+            <Header />
+            <div className="container">
+                {users.length > 0 ? <UserBook users={users} /> : null}
+                <div className="footer"> Footer </div>
+            </div>
+        </>
     );
 }
 

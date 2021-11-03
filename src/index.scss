@@ -14,6 +14,11 @@ ol {
     list-style: none;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 html {
     height: 100%;
     font-family: "Helvetica Neue", Helvetica, Arial;
@@ -25,13 +30,6 @@ html {
 
         #root {
             font-size: 1.2rem;
-
-            h1 {
-                font-weight: $font-light;
-                text-align: center;
-                font-size: 3rem;
-                margin: 1rem 0 2rem;
-            }
         }
     }
 }
