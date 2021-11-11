@@ -18,3 +18,10 @@ export const infiniteScroll = () => {
         type: ActionType.INFINITE_SCROLL,
     };
 };
+
+export const searchUsers = (searchTerm) => {
+    return {
+        type: ActionType.SEARCH_USERS,
+        searchTerm,
+    };
+};

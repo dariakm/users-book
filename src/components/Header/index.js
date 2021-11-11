@@ -1,3 +1,4 @@
+import Search from "../Search";
 import styles from "./Header.module.scss";
 
 const Header = (props) => {
@@ -11,14 +12,7 @@ const Header = (props) => {
                     <a href="#">Settings</a>
                 </li>
             </ul>
-            <form className={styles.searchBar}>
-                <input
-                    className={styles.search}
-                    type="search"
-                    placeholder="Search username"
-                    aria-label="Search"
-                />
-            </form>
+            <Search />
         </header>
     );
 };
