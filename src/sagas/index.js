@@ -1,11 +1,12 @@
 import { ActionType } from "../actions/action-types";
 import { call, put, takeLeading, all } from "redux-saga/effects";
 import axios from "axios";
+import request from "../helpers/request";
 
 function* addUsersSaga() {
     console.log("Add users saga");
     const response = yield call(
-        axios.get,
+        request.get,
         `https://randomuser.me/api/?nat=nl&results=20&inc=name,email,picture,login`
     );
     const users = response.data.results;
