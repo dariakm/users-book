@@ -2,10 +2,13 @@ import { useCallback, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../../actions/";
+import useLoadInitialUsers from "../../hooks/useLoadInitialUsers";
+import { usersSelector } from "../../helpers/selectors";
 import "./Users.scss";
 
 function UserList() {
-    const userlist = useSelector((state) => state.users);
+    useLoadInitialUsers();
+    const users = useSelector(usersSelector);
     const dispatch = useDispatch();
 
     const { infiniteScroll, initialUsers } = bindActionCreators(
@@ -32,10 +35,6 @@ function UserList() {
         };
     });
 
-    useEffect(() => {
-        initialUsers();
-    }, []);
-
     return (
         <div className="userlist">
             <table>
@@ -49,7 +48,7 @@ function UserList() {
                     </tr>
                 </thead>
                 <tbody>
-                    {userlist.map((user) => (
+                    {users.map((user) => (
                         <tr key={user.login.username}>
                             <td>
                                 <img
