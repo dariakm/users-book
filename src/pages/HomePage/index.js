@@ -1,5 +1,5 @@
-import Users from "../../components/Users/";
-import Header from "../../components/Header/";
+import Users from "components/Users/";
+import Header from "components/Header/";
 import "./HomePage.scss";
 
 function HomePage() {

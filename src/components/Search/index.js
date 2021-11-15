@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { bindActionCreators } from "redux";
-import { actionCreators } from "../../actions/";
-import { searchUsers } from "../../actions";
+import { actionCreators } from "actions";
 import { useDispatch } from "react-redux";
 import styles from "./Search.module.scss";
 

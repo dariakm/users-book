@@ -1,10 +1,10 @@
-import { useCallback, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
-import { actionCreators } from "../../actions/";
-import useLoadInitialUsers from "../../hooks/useLoadInitialUsers";
-import { usersSelector } from "../../helpers/selectors";
-import useInfiniteScroll from "../../hooks/useInfiniteScroll";
+import { actionCreators } from "actions/";
+import useLoadInitialUsers from "hooks/useLoadInitialUsers";
+import useInfiniteScroll from "hooks/useInfiniteScroll";
+import { usersSelector } from "helpers/selectors";
+import TableRow from "components/TableRow";
 import "./Users.scss";
 
 function UserList() {
@@ -31,20 +31,7 @@ function UserList() {
                 </thead>
                 <tbody>
                     {users.map((user) => (
-                        <tr key={user.login.username}>
-                            <td>
-                                <img
-                                    alt=""
-                                    src={user.picture.thumbnail}
-                                    width="48px"
-                                    height="48px"
-                                />
-                            </td>
-                            <td>{user.name.first}</td>
-                            <td>{user.name.last}</td>
-                            <td>{user.login.username}</td>
-                            <td>{user.email}</td>
-                        </tr>
+                        <TableRow key={user.login.uuid} {...user} />
                     ))}
                 </tbody>
             </table>

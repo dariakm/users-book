@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import reducer from "./reducers/";
+import reducer from "reducers/";
 import createSagaMiddleware from "redux-saga";
-import saga from "./sagas";
-import UsersBook from "./components/UsersBook";
+import saga from "sagas";
+import UsersBook from "components/UsersBook";
 import reportWebVitals from "./reportWebVitals";
 import "./index.scss";
 

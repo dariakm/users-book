@@ -1,6 +1,5 @@
-import { ActionType } from "../actions/action-types";
+import { ActionType } from "actions/action-types";
 import { call, put, takeLeading, all } from "redux-saga/effects";
-import axios from "axios";
 import request from "../helpers/request";
 
 function* addUsersSaga() {
