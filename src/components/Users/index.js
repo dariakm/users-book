@@ -4,36 +4,18 @@ import { bindActionCreators } from "redux";
 import { actionCreators } from "../../actions/";
 import useLoadInitialUsers from "../../hooks/useLoadInitialUsers";
 import { usersSelector } from "../../helpers/selectors";
+import useInfiniteScroll from "../../hooks/useInfiniteScroll";
 import "./Users.scss";
 
 function UserList() {
-    useLoadInitialUsers();
-    const users = useSelector(usersSelector);
-    const dispatch = useDispatch();
-
     const { infiniteScroll, initialUsers } = bindActionCreators(
         actionCreators,
-        dispatch
+        useDispatch()
     );
 
-    const onScroll = useCallback(() => {
-        const bodyHeight = document.body.offsetHeight;
-        const diff = 300;
-        const viewport = window.visualViewport;
-        const scrollPosition = viewport.pageTop + viewport.height;
-        if (bodyHeight - scrollPosition <= diff) {
-            console.log("Load more users");
-            infiniteScroll();
-        }
-    }, []);
-
-    useEffect(() => {
-        window.addEventListener("scroll", onScroll);
-
-        return () => {
-            window.removeEventListener("scroll", onScroll);
-        };
-    });
+    useLoadInitialUsers(initialUsers);
+    useInfiniteScroll(infiniteScroll);
+    const users = useSelector(usersSelector);
 
     return (
         <div className="userlist">
