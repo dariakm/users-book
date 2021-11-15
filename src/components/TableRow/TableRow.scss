@@ -1,0 +1,30 @@
+@import "../../styles/variables";
+
+tr {
+    &:nth-child(even) {
+        td {
+            background: $color-white;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:hover {
+        td {
+            background: $color-purple;
+        }
+    }
+
+    td {
+        border-bottom: 1px solid $color-dark-gray;
+        color: $color-gray;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        img {
+            display: block;
+            border-radius: 50%;
+        }
+    }
+}

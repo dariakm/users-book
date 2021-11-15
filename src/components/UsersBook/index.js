@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom";
-import HomePage from "../../pages/HomePage";
-import SettingsPage from "../../pages/SettingsPage";
+import HomePage from "pages/HomePage";
+import SettingsPage from "pages/SettingsPage";
 
 const UsersBook = () => (
     <>
